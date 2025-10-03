@@ -1,5 +1,7 @@
 # Dalfox Auto Full (`dalfox_auto_full.py`)
 
+![Project Logo](img.svg)
+
 ## Overview
 
 **Dalfox Auto Full** is a Python automation script that integrates with [Dalfox](https://github.com/hahwul/dalfox) to parse its output, verify PoCs, and perform additional checks (HTTP + headless browser) to help triage potential XSS findings.
