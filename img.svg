@@ -1,0 +1,93 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1565c0"></stop>
+      <stop offset="1" stop-color="#0288d1"></stop>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff8a65"></stop>
+      <stop offset="1" stop-color="#ff7043"></stop>
+    </linearGradient>
+    <style>
+      .bg { fill: #f6fbff; }
+      .card { fill: white; stroke: #e1eef9; stroke-width:2; rx:12; }
+      .term { fill: #071427; color: #9be7ff; font-family: monospace; font-size:14px; }
+      .muted { fill: #6b7c93; font-family: sans-serif; font-size:12px; }
+      .badge { fill:#fff7e6; stroke:#ffd08a; stroke-width:1.5; rx:6; }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect class="bg" x="0" y="0" width="1024" height="1024"></rect>
+
+  <!-- laptop body -->
+  <g transform="translate(162,180)">
+    <rect width="700" height="420" rx="18" fill="url(#g1)" opacity="0.95"></rect>
+    <rect x="18" y="18" width="664" height="320" rx="10" class="card"></rect>
+    <!-- terminal area -->
+    <rect x="36" y="36" width="620" height="120" rx="6" fill="#071427"></rect>
+    <!-- terminal lines -->
+    <g fill="#9be7ff" font-family="monospace" font-size="14">
+      <text x="54" y="60">$ python3 dalfox_auto_full.py --input tmp_dalfox_output.txt</text>
+      <text x="54" y="84">Scanning: https://example.com/search?q={PAYLOAD}</text>
+      <text x="54" y="108">Found: possible reflected payload - DALFOX_TEST</text>
+    </g>
+    <!-- lower screen area (browser preview) -->
+    <rect x="36" y="168" width="620" height="140" rx="6" fill="#ffffff"></rect>
+    <g transform="translate(46,178)">
+      <rect width="180" height="24" rx="4" fill="#f1f5f9"></rect>
+      <text x="8" y="17" class="muted">Browser — headless</text>
+      <rect y="32" width="540" height="88" rx="6" fill="#f9fbff" stroke="#e6f0fb"></rect>
+      <text x="8" y="56" class="muted">console: alert('DALFOX_TEST')</text>
+      <text x="8" y="76" class="muted">DOM contains: &lt;script&gt;…&lt;/script&gt;</text>
+    </g>
+
+    <!-- laptop base -->
+    <rect x="80" y="350" width="540" height="40" rx="8" fill="#263238" opacity="0.9"></rect>
+    <rect x="200" y="396" width="240" height="8" rx="4" fill="#e6eef9" opacity="0.4"></rect>
+  </g>
+
+  <!-- floating JSON icon -->
+  <g transform="translate(720,220)">
+    <rect width="160" height="200" rx="10" fill="url(#g2)" stroke="#ff7043" stroke-width="2"></rect>
+    <text x="18" y="36" fill="white" font-family="sans-serif" font-size="14" font-weight="700">results.json</text>
+    <g transform="translate(18,56)" fill="white" font-family="monospace" font-size="12">
+      <text y="16">{</text>
+      <text y="36">"url": "https://..."</text>
+      <text y="56">"status": 200</text>
+      <text y="76">}</text>
+    </g>
+  </g>
+
+  <!-- report text file -->
+  <g transform="translate(720,460)">
+    <rect width="140" height="110" rx="8" fill="#fff" stroke="#e1eef9"></rect>
+    <text x="12" y="26" class="muted" font-weight="700">report.txt</text>
+    <text x="12" y="46" class="muted">Dalfox Auto Full Report</text>
+    <text x="12" y="68" class="muted">Findings: 3</text>
+  </g>
+
+  <!-- payload tokens -->
+  <g transform="translate(120,520)" fill="#fff">
+    <rect class="badge" x="0" y="0" width="140" height="30" rx="15"></rect>
+    <text x="12" y="20" fill="#d97a00" font-family="sans-serif" font-size="13">&lt;script&gt;alert()</text>
+    <rect class="badge" x="160" y="0" width="140" height="30" rx="15"></rect>
+    <text x="172" y="20" fill="#d97a00" font-family="sans-serif" font-size="13">&lt;img src=x onerror=&gt;</text>
+    <rect class="badge" x="320" y="0" width="160" height="30" rx="15"></rect>
+    <text x="332" y="20" fill="#d97a00" font-family="sans-serif" font-size="13">console.log('x')</text>
+  </g>
+
+  <!-- shield / authorized badge -->
+  <g transform="translate(78,680)">
+    <rect x="0" y="0" width="220" height="78" rx="12" class="card"></rect>
+    <g transform="translate(12,12)">
+      <path d="M32 0 L56 12 L56 36 C56 56 36 78 32 78 C28 78 8 56 8 36 L8 12 Z" fill="#fff7e6" stroke="#ffd08a"></path>
+      <text x="72" y="28" class="muted" font-weight="700">Authorized testing only</text>
+      <text x="72" y="48" class="muted">Do not scan without permission</text>
+    </g>
+  </g>
+
+  <!-- footer note -->
+  <text x="40" y="980" class="muted">Dalfox Auto Full — visualization for documentation</text>
+</svg>
